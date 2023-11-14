@@ -128,6 +128,7 @@ function App() {
           label="Old"
           variant="outlined"
           onChange={(e) => handleInputChange(e, 'gas')}
+          sx={{mb: 1}}
         />
         <TextField
           type={'number'}
@@ -137,6 +138,7 @@ function App() {
           label="New"
           variant="outlined"
           onChange={(e) => handleInputChange(e, 'gas')}
+          sx={{mb: 1}}
         />
         <TextField
           type={'number'}
@@ -146,6 +148,7 @@ function App() {
           label="Price"
           variant="outlined"
           onChange={(e) => handleInputChange(e, 'gas')}
+          sx={{mb: 1}}
         />
         <TextField
           type={'number'}
@@ -166,6 +169,7 @@ function App() {
           label="Old"
           variant="outlined"
           onChange={(e) => handleInputChange(e, 'electricity')}
+          sx={{mb: 1}}
         />
         <TextField
           type={'number'}
@@ -175,6 +179,7 @@ function App() {
           label="New"
           variant="outlined"
           onChange={(e) => handleInputChange(e, 'electricity')}
+          sx={{mb: 1}}
         />
         <TextField
           type={'number'}
@@ -184,6 +189,7 @@ function App() {
           label="Price"
           variant="outlined"
           onChange={(e) => handleInputChange(e, 'electricity')}
+          sx={{mb: 1}}
         />
         <TextField
           type={'number'}
@@ -206,6 +212,7 @@ function App() {
           label="Old"
           variant="outlined"
           onChange={(e) => handleInputChange(e, 'water')}
+          sx={{mb: 1}}
         />
         <TextField
           type={'number'}
@@ -215,6 +222,7 @@ function App() {
           label="New"
           variant="outlined"
           onChange={(e) => handleInputChange(e, 'water')}
+          sx={{mb: 1}}
         />
         <TextField
           type={'number'}
@@ -224,6 +232,7 @@ function App() {
           label="Price"
           variant="outlined"
           onChange={(e) => handleInputChange(e, 'water')}
+          sx={{mb: 1}}
         />
         <TextField
           type={'number'}
@@ -246,6 +255,7 @@ function App() {
           label="Old"
           variant="outlined"
           onChange={(e) => handleInputChange(e, 'waterKitchen')}
+          sx={{mb: 1}}
         />
         <TextField
           type={'number'}
@@ -255,6 +265,7 @@ function App() {
           label="New"
           variant="outlined"
           onChange={(e) => handleInputChange(e, 'waterKitchen')}
+          sx={{mb: 1}}
         />
         <TextField
           type={'number'}
@@ -264,6 +275,7 @@ function App() {
           label="Price"
           variant="outlined"
           onChange={(e) => handleInputChange(e, 'waterKitchen')}
+          sx={{mb: 1}}
         />
         <TextField
           type={'number'}
@@ -297,7 +309,7 @@ function App() {
           label="TOTAL"
           variant="outlined"
           disabled={true}
-          sx={{mt: 2}}
+          sx={{mt: 2, mb: 3}}
         />
       </Box>
     </div>
