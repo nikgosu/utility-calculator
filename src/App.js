@@ -10,6 +10,7 @@ function App() {
   const [water, setWater] = useState({price: 35.16})
   const [waterKitchen, setWaterKitchen] = useState({price: 35.16})
   const [OSMD, setOSMD] = useState(544.54)
+  const [heating, setHeating] = useState(0)
 
   const handleInputChange = (event, utilityName) => {
     switch (utilityName) {
@@ -69,7 +70,11 @@ function App() {
   }, [waterKitchen]);
 
   useEffect(() => {
-    setTotal((gas.sum ?? 0) + (electricity.sum ?? 0) + (water.sum ?? 0) + (waterKitchen.sum ?? 0) + (OSMD ?? 0))
+    calculateSum(heating, 'waterKitchen')
+  }, [heating]);
+
+  useEffect(() => {
+    setTotal((gas.sum ?? 0) + (electricity.sum ?? 0) + (water.sum ?? 0) + (waterKitchen.sum ?? 0) + (OSMD ?? 0) + (heating ?? 0))
   }, [gas.sum, electricity.sum, water.sum, waterKitchen.sum]);
 
   useEffect(() => {
@@ -78,6 +83,7 @@ function App() {
     water.sum && localStorage.setItem('water', JSON.stringify(water))
     waterKitchen.sum && localStorage.setItem('waterKitchen', JSON.stringify(waterKitchen))
     OSMD && localStorage.setItem('OSMD', JSON.stringify(OSMD))
+    heating && localStorage.setItem('heating', JSON.stringify(heating))
   }, [total]);
 
   useEffect(() => {
@@ -86,6 +92,7 @@ function App() {
     const water = JSON.parse(localStorage.getItem('water'))
     const waterKitchen = JSON.parse(localStorage.getItem('waterKitchen'))
     const OSMD = JSON.parse(localStorage.getItem('OSMD'))
+    const heating = JSON.parse(localStorage.getItem('heating'))
 
     if (gas) {
       gas.old = gas.new
@@ -113,6 +120,9 @@ function App() {
     }
     if (OSMD) {
       setOSMD(OSMD)
+    }
+    if (heating) {
+      setHeating(heating)
     }
   }, []);
 
@@ -286,6 +296,18 @@ function App() {
           variant="outlined"
           disabled={true}
           onChange={(e) => handleInputChange(e, 'waterKitchen')}
+        />
+      </Box>
+      <Box>
+        <TextField
+            type={'number'}
+            name={'OSMD'}
+            value={heating}
+            id="outlined-basic"
+            label="Heating"
+            variant="outlined"
+            sx={{mt: 2}}
+            onChange={(e) => setHeating(+e.target.value)}
         />
       </Box>
       <Box>
